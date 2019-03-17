@@ -1,29 +1,41 @@
+import * as bcryptjs from "bcryptjs";
 import * as mongoose from "mongoose";
 
-const UserSchema = new mongoose.Schema({
-  age: {
-    required: false,
-    type: Date
-  },
-  email: {
-    lowercase: true,
-    required: true,
-    type: String
-  },
-  fullName: {
-    required: true,
-    type: String
-  },
-  username: {
-    required: true,
-    type: String,
-    unique: true
-  },
+interface IUser extends mongoose.Document {
+    username: string;
+    password: string;
+    email: string;
+}
 
-  password: {
-    required: true,
-    type: String
-  }
+const UserSchema = new mongoose.Schema({
+    age: {
+        required: false,
+        type: Date,
+    },
+    email: {
+        lowercase: true,
+        required: true,
+        type: String,
+    },
+    fullName: {
+        required: true,
+        type: String,
+    },
+    password: {
+        required: true,
+        select: false,
+        type: String,
+    },
+    username: {
+        required: true,
+        type: String,
+        unique: true,
+    },
 });
 
-export default mongoose.model("User", UserSchema);
+UserSchema.pre("save", async (next) => {
+    const hash = await bcryptjs.hash(this.password, 10);
+    this.password = hash;
+});
+
+export default mongoose.model<IUser>("User", UserSchema);

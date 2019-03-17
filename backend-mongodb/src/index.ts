@@ -13,5 +13,5 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 app.use(Routes);
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log("[server running]");
+    console.log("[server running]");
 });

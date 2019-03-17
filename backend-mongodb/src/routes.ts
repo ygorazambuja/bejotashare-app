@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-import UsersRoutes from "./routes/UsersRoutes";
 import FilmeRoutes from "./routes/FilmeRoutes";
+import UsersRoutes from "./routes/UsersRoutes";
 const routes = Router();
 
 routes.use(UsersRoutes);

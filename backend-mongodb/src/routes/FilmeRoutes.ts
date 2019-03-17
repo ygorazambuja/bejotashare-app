@@ -1,8 +1,8 @@
 import { Router } from "express";
 import {
-  DeleteById,
-  FilmeCreate,
-  FilmeGetAll
+    DeleteById,
+    FilmeCreate,
+    FilmeGetAll,
 } from "../controllers/FilmeController";
 
 const routes = Router();
