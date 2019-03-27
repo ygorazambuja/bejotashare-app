@@ -1,20 +1,21 @@
 import { Router } from "express";
 import {
-  AuthenticateEmail,
-  AuthenticateUsername,
-  UserById,
-  UserByUsername,
-  UserCreate,
-  UserGetAll,
+    AuthenticateEmail,
+    AuthenticateUser,
+    UserById,
+    UserByUsername,
+    UserCreate,
+    UserGetAll
 } from "../controllers/UserController";
 
 const routes = Router();
 
 routes.post("/user", UserCreate);
+routes.post("/emailAuthenticate", AuthenticateEmail);
+
 routes.get("/users", UserGetAll);
-routes.get("/user/:id", UserByUsername);
-routes.get("/user/:username", UserById);
-routes.get("/usernameAuthenticate", AuthenticateUsername);
-routes.get("/emailAuthenticate", AuthenticateEmail);
+routes.get("/userById/:id", UserById);
+routes.get("/userByUsername", UserByUsername);
+routes.get("/usernameAuthenticate", AuthenticateUser);
 
 export default routes;

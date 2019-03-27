@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
-
+mongoose.set("useCreateIndex", true);
 app.use(Routes);
 
 app.listen(process.env.PORT || 3000, () => {

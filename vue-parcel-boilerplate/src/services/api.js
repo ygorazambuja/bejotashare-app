@@ -1,7 +1,5 @@
-const axios = require(axios);
+import axios from "axios";
 
-const api = axios.create({
-    baseURL: "localhost:3000"
+export default axios.create({
+    baseURL: "http://localhost:3000"
 });
-
-module.exports = api;
