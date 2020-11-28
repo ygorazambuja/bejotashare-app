@@ -21,7 +21,7 @@
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.4.19"
+    "mongoose": "^5.10.17"
   },
   "scripts": {
     "dev": "concurrently \"tsc -w\" \"nodemon dist/index\""
